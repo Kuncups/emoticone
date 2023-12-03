@@ -7,7 +7,7 @@ const Register = () => {
     const [email, setEmail] = createSignal('');
     const [address, setAddress] = createSignal('');
     const [showPassword, setShowPassword] = createSignal(false);
-
+    const [showRepeatPassword, setShowRepeatPassword] = createSignal(false);
     const handleLogin = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         // Authentication logic can be added here
@@ -27,25 +27,11 @@ const Register = () => {
             </div>
 
             {/* Formulir Register */}
-            <div class="bg-[#FFEFC6] p-8 rounded shadow-md w-96 border border-black mb-4">
+            <div class="bg-[#FFEFC6] p-8 rounded shadow-md w-[100vh] border border-black mb-4">
                 <form onSubmit={handleLogin}>
                     {/* ... (unchanged part of the form) ... */}
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-600">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email()}
-                            onInput={(e) => setEmail(e.target.value)}
-                            class="mt-1 p-2 w-full border border-black rounded-md focus:outline-none focus:border-blue-500"
-                            placeholder="Your email"
-                        />
-                    </div>
-                    <div class="mb-4">
-                        <label for="address" class="block text-sm font-medium text-gray-600">
+                    <div class="mb-4 flex items-center">
+                        <label for="address" class="block text-sm font-medium text-gray-600 flex-shrink-0 w-1/4">
                             Address
                         </label>
                         <input
@@ -58,11 +44,39 @@ const Register = () => {
                             placeholder="Your address"
                         />
                     </div>
-                    <div class="mb-4">
-                        <label for="password" class="block text-sm font-medium text-gray-600">
+                    <div class="mb-4 flex items-center">
+                        <label for="email" class="block text-sm font-medium text-gray-600 flex-shrink-0 w-1/4">
+                            Email
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email()}
+                            onInput={(e) => setEmail(e.target.value)}
+                            class="mt-1 p-2 w-full border border-black rounded-md focus:outline-none focus:border-blue-500"
+                            placeholder="Your email"
+                        />
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <label for="username" class="block text-sm font-medium text-gray-600 flex-shrink-0 w-1/4">
+                            Username
+                        </label>
+                        <input
+                            type="username"
+                            id="username"
+                            name="username"
+                            value={username()}
+                            onInput={(e) => setUsername(e.target.value)}
+                            class="mt-1 p-2 w-full border border-black rounded-md focus:outline-none focus:border-blue-500"
+                            placeholder="Your username"
+                        />
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <label for="password" class="block text-sm font-medium text-gray-600 flex-shrink-0 w-1/4">
                             Password
                         </label>
-                        <div class="relative">
+                        <div class="relative w-3/4">
                             <input
                                 type={showPassword() ? 'text' : 'password'}
                                 id="password"
@@ -72,46 +86,62 @@ const Register = () => {
                                 class="mt-1 p-2 w-full rounded-md focus:outline-none focus:border-blue-500 border border-black"
                                 placeholder="Your password"
                             />
-                            <div
-                                class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
-                                onClick={() => setShowPassword(!showPassword())}
-                            >
-                                {showPassword() ? 'Hide' : 'Show'}
+                            <div class="mt-2 flex items-center">
+                                <input
+                                    type="checkbox"
+                                    id="showPasswordCheckbox"
+                                    name="showPasswordCheckbox"
+                                    checked={showPassword()}
+                                    onChange={() => setShowPassword(!showPassword())}
+                                />
+                                <label for="showPasswordCheckbox" class="text-sm font-medium text-gray-600 ml-2">
+                                    Show Password
+                                </label>
                             </div>
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="repeatPassword" class="block text-sm font-medium text-gray-600">
-                            Repeat Password
+
+                    <div class="mb-4 flex items-center">
+                        <label for="repeatPassword" class="block text-sm font-medium text-gray-600 flex-shrink-0 w-1/4">
+                            Re-Password
                         </label>
-                        <input
-                            type="password"
-                            id="repeatPassword"
-                            name="repeatPassword"
-                            value={repeatPassword()}
-                            onInput={(e) => setRepeatPassword(e.target.value)}
-                            class="mt-1 p-2 w-full rounded-md focus:outline-none focus:border-blue-500 border border-black"
-                            placeholder="Repeat your password"
-                        />
+                        <div class="relative w-3/4">
+                            <input
+                                type={showRepeatPassword() ? 'text' : 'password'}
+                                id="repeatPassword"
+                                name="repeatPassword"
+                                value={repeatPassword()}
+                                onInput={(e) => setRepeatPassword(e.target.value)}
+                                class="mt-1 p-2 w-full rounded-md focus:outline-none focus:border-blue-500 border border-black"
+                                placeholder="Your repeat password"
+                            />
+                            <div class="mt-2 flex items-center">
+                                <input
+                                    type="checkbox"
+                                    id="showRepeatPasswordCheckbox"
+                                    name="showRepeatPasswordCheckbox"
+                                    checked={showRepeatPassword()}
+                                    onChange={() => setShowRepeatPassword(!showRepeatPassword())}
+                                />
+                                <label for="showRepeatPasswordCheckbox" class="text-sm font-medium text-gray-600 ml-2">
+                                    Show Password
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <button
-                        type="submit"
-                        class="w-full bg-[#EF2F88] text-white p-2 font-bold border border-black"
-                    >
-                        Sign Up
-                    </button>
+                    <div class=" flex  items-center justify-center ">
+                        <button
+                            type="submit"
+                            class="w-96 bg-[#EF2F88] text-white p-2 font-bold rounded-md"
+                        >
+                            Create My Account
+                        </button>
+                    </div>
                 </form>
 
-                {/* Forgot Password */}
-                <div class="mt-4 text-sm text-blue-500 text-center">
-                    <a href="#">Forgot Password?</a>
-                </div>
-                {/* Divider */}
-                <div class="my-4 border-t border-gray-300"></div>
-
                 {/* Sign Up */}
-                <div class="text-sm text-center text-gray-600">
-                    Don't have an account? <a class='text-[#EF2F88]' href="/register">Sign Up</a>
+                <div class="text-sm text-center mt-4 text-gray-600">
+                    Have an account? <a class='text-[#EF2F88]' href="/login">Sign In</a>
                 </div>
             </div>
         </div>
