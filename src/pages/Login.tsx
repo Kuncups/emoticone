@@ -75,7 +75,7 @@ const Login = () => {
 
                 {/* Sign Up */}
                 <div class="text-sm text-center text-gray-600">
-                    Don't have an account? <a class='text-[#EF2F88]' href="#">Sign Up</a>
+                    Don't have an account? <a class='text-[#EF2F88]' href="/register">Sign Up</a>
                 </div>
             </div>
         </div>
