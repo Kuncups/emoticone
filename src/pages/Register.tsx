@@ -30,7 +30,6 @@ const Register = () => {
             <div class="bg-[#FFEFC6] p-8 rounded shadow-md w-[100vh] border border-black mb-4">
                 <p class='font-bold mb-4'>Account Information</p>
                 <form onSubmit={handleLogin}>
-                    {/* ... (unchanged part of the form) ... */}
                     <div class="mb-4 flex items-center">
                         <label for="address" class="block text-sm font-medium text-gray-600 flex-shrink-0 w-1/4">
                             Address
