@@ -1,88 +1,57 @@
 import { createSignal } from 'solid-js';
-
-
+import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
-    const [username, setUsername] = createSignal('');
-    const [password, setPassword] = createSignal('');
+    const [isSidebarOpen, setSidebarOpen] = createSignal(false);
 
-    const handleLogin = (e: Event) => {
-        e.preventDefault();
-        // Logika autentikasi dapat ditambahkan di sini
-        console.log('Username:', username(), 'Password:', password());
-        // Setelah berhasil login, panggil prop onLogin
+    const openSidebar = () => {
+        setSidebarOpen(true);
     };
 
+    const closeSidebar = () => {
+        setSidebarOpen(false);
+    };
 
     return (
-        <div class="min-h-screen flex flex-col items-center justify-center bg-[#F9D371]">
-            {/* Logo Emoticone - Pojok Kiri */}
-            <img src="image1.png" alt="Emoticone Logo" class="absolute -left-4 -bottom-4 w-40 h-40 mb-4 ml-4" />
-
-            {/* Logo Emoticone - Pojok Kanan */}
-            <img src="image3.png" alt="Emoticone Logo" class="absolute -right-4 -bottom-4 w-40 h-40 mb-4 mr-4" />
-            {/* Logo Emoticone */}
-            <div class="mb-4">
-                <img src="logo.png" alt="Emoticone Logo" class="w-full h-48 mx-auto mb-4" />
-            </div>
-
-            {/* Paragraf di atas formulir */}
-            <div class="mb-10">
-                <p class="text-center">Sign in to EMOTICONE or create an account</p>
-            </div>
-
-            {/* Formulir Login */}
-            <div class="bg-[#FFEFC6] p-8 rounded shadow-md w-96 border border-black mb-4">
-                <form onSubmit={handleLogin}>
-                    <div class="mb-4">
-                        <label for="username" class="block text-sm font-medium text-gray-600">
-                            Username
-                        </label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            value={username()}
-                            onInput={(e) => setUsername(e.target.value)}
-                            class="mt-1 p-2 w-full border border-black rounded-md focus:outline-none focus:border-blue-500"
-                            placeholder="Your username"
-                        />
-                    </div>
-                    <div class="mb-4">
-                        <label for="password" class="block text-sm font-medium text-gray-600">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={password()}
-                            onInput={(e) => setPassword(e.target.value)}
-                            class="mt-1 p-2 w-full rounded-md focus:outline-none focus:border-blue-500 border border-black"
-                            placeholder="Your password"
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        class="w-full bg-[#EF2F88] text-white p-2 font-bold border border-black"
-                    >
-                        Sign In
+        <>
+            <div class="relative min-h-screen flex flex-col items-center justify-center bg-[#F9D371]">
+                <div class='flex absolute justify-center top-0 left-0 m-4'>
+                    <button class="text-3xl text-gray-800 focus:outline-none" onClick={openSidebar}>
+                        ☰
                     </button>
-                </form>
+                    <img src="logo2.png" alt="Logo" class="ml-4 w-64 h-14" />
 
-                {/* Forgot Password */}
-                <div class="mt-4 text-sm text-blue-500 text-center">
-                    <a href="#">Forgot Password?</a>
+                    <div class="w-47 h-45 absolute top-28 items-right">
+                        <img src='people.png' alt="People" class="w-47 h-45 absolute top-0 left-0 border-1.50 border-black" />
+                    </div>
+                    <div style="width: 709px; height: 15px; color: rgba(0, 0, 0, 0.40); font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word"></div>
+                    <div style="width: 400px; height: 15px; color: rgba(0, 0, 0, 0.40); font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word"></div>
+                    <input
+                        type="text"
+                        placeholder="Enter a keyword to search Flavour"
+                        class="w-96 h-8 px-3 text-sm border border-gray-500 rounded-md mr-8 focus:outline-none"
+                    />
+                    <div style="width: 47px; height: 45px; position: relative">
+                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png'></img>
+                    </div>
                 </div>
-                {/* Divider */}
-                <div class="my-4 border-t border-gray-300"></div>
-
-                {/* Sign Up */}
-                <div class="text-sm text-center text-gray-600">
-                    Don't have an account? <a class='text-[#EF2F88]' href="#">Sign Up</a>
+                <div style="width: 1249px; height: 341px; position: relative">
+                    <div style="width: 1249px; height: 310px; left: 0px; top: 0px; position: absolute; background: #BA43F2; box-shadow: 9px 19px 5.5px rgba(0, 0, 0, 0.25); border-radius: 75px; border: 1px black solid"></div>
+                    <div style="width: 356px; height: 96px; left: 50px; top: 157px; position: absolute; background: #EF2F88; box-shadow: 9px 19px 5.5px rgba(0, 0, 0, 0.25); border-radius: 75px; border: 1px black solid"></div>
+                    <div style="width: 954px; height: 89px; left: 50px; top: 34px; position: absolute; color: white; font-size: 40px; font-family: Inter; font-weight: 700; word-wrap: break-word">Flavors that Speak Your Heart, Emotions That Melt in Your Mouth</div>
+                    <div style="width: 213px; height: 36px; left: 183px; top: 187px; position: absolute; color: white; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">100 Points</div>
+                    <img style="width: 133px; height: 133px; left: 50px; top: 139px; position: absolute" src="image4.png" />
+                    <img style="width: 264px; height: 272px; left: 921px; top: 69px; position: absolute" src="image5.png" />
+                    <div style="width: 130px; height: 125px; left: 1075px; top: 8px; position: absolute; background: #FF0D38; border-radius: 9999px"></div>
+                    <div style="width: 123.93px; height: 52.59px; left: 1078px; top: 45px; position: absolute; text-align: center; color: white; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">50% <br />Discount</div>
+                </div>
+                <div style="width: 1249px; height: 437px; background: #BA43F2; box-shadow: 9px 19px 5.5px rgba(0, 0, 0, 0.25); border-radius: 75px; border: 1px black solid">
                 </div>
             </div>
-        </div>
+            <div class="fixed top-0 left-0">
+                <Sidebar isOpen={isSidebarOpen()} onClose={closeSidebar} />
+            </div>
+        </>
     );
 };
 

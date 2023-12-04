@@ -58,12 +58,12 @@ const Login = () => {
                             placeholder="Your password"
                         />
                     </div>
-                    <button
+                    <a
                         type="submit"
-                        class="w-full bg-[#EF2F88] text-white p-2 font-bold border border-black"
+                        class="w-full bg-[#EF2F88] text-white text-center p-2 font-bold border border-black" href="/dashboard"
                     >
                         Sign In
-                    </button>
+                    </a>
                 </form>
 
                 {/* Forgot Password */}
