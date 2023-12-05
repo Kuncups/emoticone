@@ -11,16 +11,6 @@ const ShoppingCart = () => {
         setSidebarOpen(false);
     };
 
-    const items = [
-        { name: 'Peanut Butter Power', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
-        { name: 'Strawberry Passion', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
-        { name: 'Cookies n cream', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
-        { name: 'Coffe Boost', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
-    ];
-
-    const totalPayment = items.reduce((total, item) => total + parseInt(item.price.replace(/\D/g, ''), 10) * item.quantity, 0);
-
-
     return (
         <>
             <div class="relative min-h-screen flex flex-col items-center justify-center bg-[#F9D371]">
@@ -112,11 +102,13 @@ const ShoppingCart = () => {
                             </div>
                             <img class="w-[25px] h-[25px] left-[691px] top-[39px] absolute" src="trash.png" />
                         </div>
-                        <div class="w-[635px] h-24 relative mt-96 top-20 ml-16">
-                            <div class="w-[635px] h-24 left-0 top-0 absolute bg-pink-600 rounded-[15px] shadow border border-black"></div>
-                            <div class="w-[199px] h-9 left-[417px] top-[28px] absolute text-white text-3xl font-bold font-['Inter']">IDR 30.000</div>
-                            <div class="w-[252px] h-[43px] left-[36px] top-[28px] absolute text-white text-3xl font-bold font-['Inter']">Total Payment</div>
-                        </div>
+                        <a href='/payment'>
+                            <div class="w-[635px] h-24 relative mt-96 top-20 ml-16">
+                                <div class="w-[635px] h-24 left-0 top-0 absolute bg-pink-600 rounded-[15px] shadow border border-black"></div>
+                                <div class="w-[199px] h-9 left-[417px] top-[28px] absolute text-white text-3xl font-bold font-['Inter']">IDR 30.000</div>
+                                <div class="w-[252px] h-[43px] left-[36px] top-[28px] absolute text-white text-3xl font-bold font-['Inter']">Total Payment</div>
+                            </div>
+                        </a>
                     </div>
                     <div class="w-[332px] left-[232px] top-[32px] absolute text-white text-[45px] font-bold font-['Inter']">Shopping Cart</div>
                     <div class="w-[629px] h-[72px] left-[232px] top-[97px] absolute text-white text-xl font-bold font-['Inter']">You have 3 item in your cart</div>

@@ -28,15 +28,21 @@ const Sidebar = (props: SidebarProps) => {
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                        <a href="/orders" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
                             <img src="Vector.png" alt="Home Icon" class="mr-2 items-start" />
                             <p>Orders</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                        <a href="/moodscoop" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-10 border rounded-full flex items-center">
                             <img src="Union.png" alt="Home Icon" class="mr-2 items-start" />
                             <p>MoodScoop</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/profile" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                            <img src="Union.png" alt="Home Icon" class="mr-2 items-start" />
+                            <p>Profiles</p>
                         </a>
                     </li>
                 </ul>
