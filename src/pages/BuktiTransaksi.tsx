@@ -3,12 +3,29 @@ import Sidebar from '../components/Sidebar';
 
 const BuktiTransaksi = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
+    const [imagePreview, setImagePreview] = createSignal<string | null>(null);
+
     const openSidebar = () => {
         setSidebarOpen(true);
     };
 
     const closeSidebar = () => {
         setSidebarOpen(false);
+    };
+
+    const handleFileChange = (event: Event) => {
+        const inputElement = event.target as HTMLInputElement;
+        const file = inputElement.files?.[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            setImagePreview(null);
+        }
     };
 
     return (
@@ -37,15 +54,32 @@ const BuktiTransaksi = () => {
                     <div class="w-[544px] left-[53px] top-[37px] absolute text-white text-[45px] font-bold font-['Inter']">Upload Bukti Transaksi</div>
                     <div class="w-[1237px] h-[0px] left-[52px] top-[151px] absolute border border-black"></div>
                     <div class="w-[515px] h-[334px] left-[413px] top-[318px] absolute">
-                        <div class="w-[515px] h-[334px] left-0 top-0 absolute bg-stone-300 bg-opacity-90 rounded-[25px] border border-black">
-                            <div class="w-[362px] h-[242px] left-[32px] top-0 absolute bg-stone-300 bg-opacity-0"></div>
-                            <div class="w-[35px] h-[35px] left-[455px] top-[24px] absolute"></div>
-                            <img class="w-[47px] h-[47px] left-[234px] top-[143px] absolute" src="https://via.placeholder.com/47x47" />
+                        <div class="w-[515px] h-[334px] left-0 top-0 absolute bg-stone-300 bg-opacity-90 rounded-[25px]">
+                            <div class="w-[515px] h-[334px] left-0 top-0 absolute bg-stone-300 bg-opacity-90 rounded-[25px]">
+                                <div class="w-[362px] h-[242px] left-[32px] top-0 absolute bg-stone-300 bg-opacity-0"></div>
+                                <div class="w-[35px] h-[35px] left-[455px] top-[24px] absolute"></div>
+                                {imagePreview() && (
+                                    <img
+                                        class="w-full h-full rounded-xl -left-[0px] top-[0px] absolute border border-black"
+                                        src={imagePreview() ?? undefined}
+                                        alt="Preview"
+                                    />
+                                )}
+                            </div>
+
                         </div>
-                        <div class="w-[233px] left-[150px] top-[206px] absolute text-white text-xl font-normal font-['Inter']">Unggah gambar di sini</div>
+                        <div class="w-[233px] left-[150px] top-[206px] absolute text-white text-xl font-normal font-['Inter']">
+
+                        </div>
                     </div>
                     <div class="w-[1237px] h-16 left-[52px] top-[763px] absolute bg-pink-600 rounded-[15px] shadow border border-black"></div>
-                    <div class="w-[187px] h-[50px] left-[577px] top-[770px] absolute text-center text-white text-3xl font-bold font-['Poppins']">Upload</div>
+                    <input
+                        type="file"
+                        class="bg-pink-600 w-[187px] h-[50px] left-[577px] top-[770px] absolute text-center text-white text-3xl font-bold font-['Poppins']"
+                        onChange={handleFileChange}
+                    >
+                        Upload
+                    </input>
                     <div class="left-[53px] top-[185px] absolute text-center text-white text-[32px] font-bold font-['Inter']">Silahkan mengupload bukti transaksi di bawah ini :</div>
                 </div>
 

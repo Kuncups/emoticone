@@ -47,12 +47,13 @@ const Profile = () => {
                     <div style="left: 81px; top: 287px; position: absolute; color: #FFF8F8; font-size: 25px; font-family: Inter; font-weight: 600; word-wrap: break-word">Username</div>
                     <div style="left: 81px; top: 415px; position: absolute; color: #FFF8F8; font-size: 25px; font-family: Inter; font-weight: 600; word-wrap: break-word">Email</div>
                     <div style="left: 81px; top: 547px; position: absolute; color: #FFF8F8; font-size: 25px; font-family: Inter; font-weight: 600; word-wrap: break-word">Password</div>
-                    <div style="width: 722px; height: 52px; left: 81px; top: 338px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
-                    <div style="width: 722px; height: 52px; left: 81px; top: 466px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
-                    <div style="width: 722px; height: 52px; left: 81px; top: 594px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
-                    <div style="width: 167px; height: 52px; left: 636px; top: 722px; position: absolute; background: #FF1494; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
                     <a href='/profile'>
-                        <div style="left: 701px; top: 733px; position: absolute; color: #FFF8F8; font-size: 25px; font-family: Inter; font-weight: 600; word-wrap: break-word">OK</div>
+
+                        <div style="width: 722px; height: 52px; left: 81px; top: 338px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
+                        <div style="width: 722px; height: 52px; left: 81px; top: 466px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
+                        <div style="width: 722px; height: 52px; left: 81px; top: 594px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
+                        <div style="width: 167px; height: 52px; left: 636px; top: 722px; position: absolute; background: #FF1494; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
+                        <div style="left: 701px; top: 730px; position: absolute; color: #FFF8F8; font-size: 25px; font-family: Inter; font-weight: 600; word-wrap: break-word">OK</div>
                     </a>
                     <input class='border border-black rounded-md bg-[#EF2F88] p-4' style="width: 723px; height: 50px; left: 80px; top: 339px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word" />
                     <input class='border border-black rounded-md bg-[#EF2F88] p-4' style="width: 723px; height: 50px; left: 80px; top: 467px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word" />
