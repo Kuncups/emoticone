@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Menu from './pages/Menu';
 import Promo from './pages/Promo';
+import ShoppingCart from './pages/ShoppingCart';
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
         return <Menu />;
       case '/promo':
         return <Promo />;
+      case '/shoppingcart':
+        return <ShoppingCart />;
       default:
         return <Login />;
     }

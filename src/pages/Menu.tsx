@@ -6,7 +6,7 @@ const Menu = () => {
     const [totalPrice, setTotalPrice] = createSignal(0); // Initialize total price to zero
     const [totalItems, setTotalItems] = createSignal(0); // Initialize total items to zero
     const [searchInput, setSearchInput] = createSignal('');
-    
+
     const openSidebar = () => {
         setSidebarOpen(true);
     };
@@ -81,14 +81,16 @@ const Menu = () => {
                         ))}
                     </div>
                 </div>
-                <div class='flex items-center justify-between gap-10 px-20 bg-white p-2 rounded-full mt-4 shadow-black'>
-                    <p class="text-lg font-bold text-purple-500 font-sans items mr-10">
-                        {totalItems()} Items
-                    </p>
-                    <p class="text-lg font-bold text-purple-500 font-sans">
-                        Rp. {totalPrice()}
-                    </p>
-                </div>
+                <a href='/shoppingcart'>
+                    <div class='flex items-center justify-between gap-10 px-20 bg-white p-2 rounded-full mt-4 shadow-black'>
+                        <p class="text-lg font-bold text-purple-500 font-sans items mr-10">
+                            {totalItems()} Items
+                        </p>
+                        <p class="text-lg font-bold text-purple-500 font-sans">
+                            Rp. {totalPrice()}
+                        </p>
+                    </div>
+                </a>
             </div>
             <div class="fixed top-0 left-0">
                 <Sidebar isOpen={isSidebarOpen()} onClose={closeSidebar} />
