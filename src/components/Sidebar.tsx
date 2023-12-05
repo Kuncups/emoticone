@@ -22,8 +22,8 @@ const Sidebar = (props: SidebarProps) => {
                         </a>
                     </li>
                     <li>
-                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
-                            <img src="promos.png" alt="Home Icon" class="mr-2 items-start" />
+                        <a href="/promo" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                            <img src="promos.png" alt="Promo Icon" class="mr-2 items-start" />
                             <p>Promos</p>
                         </a>
                     </li>

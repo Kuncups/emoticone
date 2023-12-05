@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Menu from './pages/Menu';
+import Promo from './pages/Promo';
 
 function App() {
 
@@ -15,6 +16,8 @@ function App() {
         return <Dashboard />;
       case '/menu':
         return <Menu />;
+      case '/promo':
+        return <Promo />;
       default:
         return <Login />;
     }
