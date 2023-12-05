@@ -11,6 +11,16 @@ const ShoppingCart = () => {
         setSidebarOpen(false);
     };
 
+    const items = [
+        { name: 'Peanut Butter Power', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
+        { name: 'Strawberry Passion', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
+        { name: 'Cookies n cream', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
+        { name: 'Coffe Boost', price: 'IDR 10.000', quantity: 1, image: 'image7.png' },
+    ];
+
+    const totalPayment = items.reduce((total, item) => total + parseInt(item.price.replace(/\D/g, ''), 10) * item.quantity, 0);
+
+
     return (
         <>
             <div class="relative min-h-screen flex flex-col items-center justify-center bg-[#F9D371]">
@@ -45,7 +55,11 @@ const ShoppingCart = () => {
                         <div class="w-[197px] h-[72px] left-[128px] top-[1px] absolute text-white text-lg font-bold font-['Inter']"><br />Peanut Butter Power<br /><br /><br /><br /><br /></div>
                         <div class="w-[109px] h-[22px] left-[571px] top-[41px] absolute text-white text-lg font-bold font-['Inter']">IDR 10.000</div>
                         <div class="w-[131px] h-[34px] left-[128px] top-[56px] absolute bg-white rounded-[100px]"></div>
-                        <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                        <div class='flex items-center justify-center'>
+                            <div class="w-[205px] h-[83px] left-[148px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">-</div>
+                            <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                            <div class="w-[205px] h-[83px] left-[230px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">+</div>
+                        </div>
                         <img class="w-[25px] h-[25px] left-[691px] top-[39px] absolute" src="trash.png" />
                     </div>
                     <div class="w-[743px] h-[148px] left-[232px] top-[497px] absolute">
@@ -57,7 +71,11 @@ const ShoppingCart = () => {
                         <div class="w-[280px] h-[72px] left-[128px] top-[23px] absolute text-white text-lg font-bold font-['Inter']">Strawberry Passion</div>
                         <div class="w-[109px] h-[22px] left-[571px] top-[41px] absolute text-white text-lg font-bold font-['Inter']">IDR 10.000</div>
                         <div class="w-[131px] h-[34px] left-[128px] top-[56px] absolute bg-white rounded-[100px]"></div>
-                        <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                        <div class='flex items-center justify-center'>
+                            <div class="w-[205px] h-[83px] left-[148px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">-</div>
+                            <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                            <div class="w-[205px] h-[83px] left-[230px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">+</div>
+                        </div>
                         <img class="w-[25px] h-[25px] left-[691px] top-[39px] absolute" src="trash.png" />
                     </div>
                     <div class="w-[743px] h-[148px] left-[232px] top-[201px] absolute">
@@ -70,7 +88,11 @@ const ShoppingCart = () => {
                             <div class="w-[197px] h-[72px] left-[128px] top-[1px] absolute text-white text-lg font-bold font-['Inter']"><br />Cookies n cream<br /><br /><br /><br /><br /></div>
                             <div class="w-[109px] h-[22px] left-[571px] top-[41px] absolute text-white text-lg font-bold font-['Inter']">IDR 10.000</div>
                             <div class="w-[131px] h-[34px] left-[128px] top-[56px] absolute bg-white rounded-[100px]"></div>
-                            <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                            <div class='flex items-center justify-center'>
+                                <div class="w-[205px] h-[83px] left-[148px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">-</div>
+                                <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                                <div class="w-[205px] h-[83px] left-[230px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">+</div>
+                            </div>
                             <img class="w-[87px] h-[86px] left-[22px] top-[13px] absolute rounded-[15px] border-2 border-white" src="https://via.placeholder.com/87x86" />
                             <img class="w-[25px] h-[25px] left-[691px] top-[39px] absolute" src="trash.png" />
                         </div>
@@ -83,7 +105,11 @@ const ShoppingCart = () => {
                             <div class="w-[197px] h-[72px] left-[128px] top-[23px] absolute text-white text-lg font-bold font-['Inter']">Coffe Boost</div>
                             <div class="w-[109px] h-[22px] left-[571px] top-[41px] absolute text-white text-lg font-bold font-['Inter']">IDR 10.000</div>
                             <div class="w-[131px] h-[34px] left-[128px] top-[56px] absolute bg-white rounded-[100px]"></div>
-                            <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                            <div class='flex items-center justify-center'>
+                                <div class="w-[205px] h-[83px] left-[148px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">-</div>
+                                <div class="w-[205px] h-[83px] left-[188px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">1</div>
+                                <div class="w-[205px] h-[83px] left-[230px] top-[65px] absolute text-purple-500 text-[15px] font-bold font-['Inter']">+</div>
+                            </div>
                             <img class="w-[25px] h-[25px] left-[691px] top-[39px] absolute" src="trash.png" />
                         </div>
                         <div class="w-[635px] h-24 relative mt-96 top-20 ml-16">
