@@ -1,4 +1,6 @@
-import { Accessor, createSignal } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
+import "solid-slider/slider.css";
+import { Slider, SliderButton, SliderProvider, createSlider } from "solid-slider";
 import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
@@ -11,17 +13,21 @@ const Dashboard = () => {
         setSidebarOpen(false);
     };
 
-    const images = ["image6.png", "image7.png", "image8.png"];
+    const images = [
+        "image5.png", "image6.png", "image7.png", "image7.png",
+        "image6.png", "image5.png", "image5.png", "image6.png",
+        "image7.png", "image5.png", "image6.png", "image7.png"
+    ];
 
     const [currentSlide, setCurrentSlide] = createSignal<number>(0);
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % images.length);
-    };
+    createEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % images.length);
+        }, 5000); // Change the duration as needed
 
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
-    };
+        return () => clearInterval(interval);
+    });
 
 
     return (
@@ -60,29 +66,30 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div class="w-[1249px] h-[437px] bg-purple-500 rounded-[75px] items-center shadow border border-black relative overflow-hidden">
-                    <div class="text-white flex items-start justify-left ml-28 mt-7 text-3xl font-bold font-['Inter']">Menu</div>
-                    <div class="flex absolute items-center justify-center top-0 left-0 w-full h-full">
-                        {images.map((image, index) => (
-                            <div
-                                style={`width: 261px; height: 261px; background: rgba(217, 217, 217, 0.01); box-shadow: 0px 0px 11.199999809265137px 5px rgba(255, 255, 255, 0.25); border-radius: 25px; transform: translateX(${(index - currentSlide()) * 60}%)`}
-                                onClick={() => setCurrentSlide(index)}
-                            >
-                                <img
-                                    src={image}
-                                    alt={`Gambar ${index + 1}`}
-                                    class="w-full h-full object-contain"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                    <button class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl" onClick={prevSlide}>
-                        ❮
-                    </button>
-                    <button class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl" onClick={nextSlide}>
-                        ❯
-                    </button>
-                </div>
+                    <div class="text-white flex items-start justify-left ml-28 mt-7 text-3xl font-bold font-['Inter']"><a href='/menu'>Menu</a></div>
+                    <SliderProvider>
+                        <div class="flex items-center justify-center">
+                            <Slider options={{ loop: true }}>
+                                {Array.from({ length: Math.ceil(images.length / 3) }).map((_, i) => (
+                                    <div class="flex justify-center gap-36 items-center p-5">
+                                        {images.slice(i * 3, i * 3 + 3).map((image, index) => (
+                                            <div style="width: 261px; height: 261px; background: rgba(217, 217, 217, 0.01); box-shadow: 0px 0px 11.199999809265137px 5px rgba(255, 255, 255, 0.25); border-radius: 25px">
+                                                <img src={image} alt={`Slide ${i * 3 + index + 1}`} class="mr-4" />
+                                            </div>
+                                        ))}
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+                        <div class="flex items-center absolute top-1/2 transform -translate-y-1/2 right-4">
+                            <SliderButton next class="text-white text-2xl px-4 cursor-pointer">&gt;</SliderButton>
+                        </div>
 
+                        <div class="flex items-center absolute top-1/2 transform -translate-y-1/2 left-4">
+                            <SliderButton prev class="text-white text-2xl px-4 cursor-pointer">&lt;</SliderButton>
+                        </div>
+                    </SliderProvider>
+                </div>
             </div>
             <div class="fixed top-0 left-0">
                 <Sidebar isOpen={isSidebarOpen()} onClose={closeSidebar} />

@@ -18,7 +18,7 @@ const Sidebar = (props: SidebarProps) => {
             <nav class="mb-10">
                 <ul class="space-y-4 flex flex-col gap-10 items-center">
                     <li>
-                        <a href="#" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 border rounded-full">
+                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 border rounded-full">
                             Home
                         </a>
                     </li>
