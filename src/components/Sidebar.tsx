@@ -1,5 +1,3 @@
-import { createSignal } from 'solid-js';
-
 interface SidebarProps {
     isOpen: boolean;
     onClose: () => void;
@@ -18,23 +16,27 @@ const Sidebar = (props: SidebarProps) => {
             <nav class="mb-10">
                 <ul class="space-y-4 flex flex-col gap-10 items-center">
                     <li>
-                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 border rounded-full">
-                            Home
+                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                            <img src="home.png" alt="Home Icon" class="mr-2 items-start" />
+                            <p>Home</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 border rounded-full">
-                            About
+                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                            <img src="promos.png" alt="Home Icon" class="mr-2 items-start" />
+                            <p>Promos</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 border rounded-full">
-                            Contact
+                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                            <img src="Vector.png" alt="Home Icon" class="mr-2 items-start" />
+                            <p>Orders</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 border rounded-full">
-                            Services
+                        <a href="/dashboard" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
+                            <img src="Union.png" alt="Home Icon" class="mr-2 items-start" />
+                            <p>MoodScoop</p>
                         </a>
                     </li>
                 </ul>

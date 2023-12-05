@@ -1,6 +1,6 @@
 import { createSignal, createEffect } from 'solid-js';
 import "solid-slider/slider.css";
-import { Slider, SliderButton, SliderProvider, createSlider } from "solid-slider";
+import { Slider, SliderButton, SliderProvider } from "solid-slider";
 import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
@@ -19,7 +19,7 @@ const Dashboard = () => {
         "image7.png", "image5.png", "image6.png", "image7.png"
     ];
 
-    const [currentSlide, setCurrentSlide] = createSignal<number>(0);
+    const [, setCurrentSlide] = createSignal<number>(0);
 
     createEffect(() => {
         const interval = setInterval(() => {
