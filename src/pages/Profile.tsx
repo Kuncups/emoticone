@@ -3,12 +3,17 @@ import Sidebar from '../components/Sidebar';
 
 const Profile = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
+    const [showPassword, setShowPassword] = createSignal(false);
     const openSidebar = () => {
         setSidebarOpen(true);
     };
 
     const closeSidebar = () => {
         setSidebarOpen(false);
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword());
     };
 
     return (
@@ -46,10 +51,12 @@ const Profile = () => {
                     <div style="width: 722px; height: 52px; left: 81px; top: 466px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
                     <div style="width: 722px; height: 52px; left: 81px; top: 594px; position: absolute; background: #EF2F88; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
                     <div style="width: 167px; height: 52px; left: 636px; top: 722px; position: absolute; background: #FF1494; border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
-                    <div style="left: 701px; top: 733px; position: absolute; color: #FFF8F8; font-size: 25px; font-family: Inter; font-weight: 600; word-wrap: break-word">OK</div>
-                    <div style="width: 140px; height: 42px; left: 99px; top: 352px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">bims09</div>
-                    <div style="width: 252px; height: 42px; left: 99px; top: 480px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">bimaputra15@gmail.com</div>
-                    <div style="width: 116px; height: 42px; left: 99px; top: 612px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">*******</div>
+                    <a href='/profile'>
+                        <div style="left: 701px; top: 733px; position: absolute; color: #FFF8F8; font-size: 25px; font-family: Inter; font-weight: 600; word-wrap: break-word">OK</div>
+                    </a>
+                    <input class='border border-black rounded-md bg-[#EF2F88] p-4' style="width: 723px; height: 50px; left: 80px; top: 339px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word" />
+                    <input class='border border-black rounded-md bg-[#EF2F88] p-4' style="width: 723px; height: 50px; left: 80px; top: 467px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word" />
+                    <input class='border border-black rounded-md bg-[#EF2F88] p-4' style="width: 723px; height: 50px; left: 80px; top: 595px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word" type={showPassword() ? 'text' : 'password'} />
                     <div style="width: 48px; height: 48px; left: 597px; top: 168px; position: absolute">
                         <div style="width: 48px; height: 48px; left: 0px; top: 0px; position: absolute; background: #FFD600; border-radius: 15px; border: 0.50px black solid"></div>
                         <div style="width: 28.80px; height: 28.80px; left: 9.60px; top: 9.60px; position: absolute">
@@ -79,7 +86,12 @@ const Profile = () => {
                         </div>
                     </div>
                     <div style="width: 190px; height: 29px; left: 81px; top: 663px; position: absolute">
-                        <div style="width: 27px; height: 29px; left: 0px; top: 0px; position: absolute; background: rgba(217, 217, 217, 0); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"></div>
+                        <input
+                            type='checkbox'
+                            checked={showPassword()}
+                            onChange={togglePasswordVisibility}
+                            style="width: 27px; height: 29px; left: 0px; top: 0px; position: absolute; background: rgba(217, 217, 217, 0); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 5px; border: 1px rgba(0, 0, 0, 0.60) solid"
+                        />
                         <div style="left: 39px; top: 5px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Show Password</div>
                     </div>
                 </div>

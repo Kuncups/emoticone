@@ -5,7 +5,6 @@ const Promo = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
     const [totalPrice, setTotalPrice] = createSignal(0); // Initialize total price to zero
     const [totalItems, setTotalItems] = createSignal(0); // Initialize total items to zero
-    const [searchInput, setSearchInput] = createSignal('');
 
     const openSidebar = () => {
         setSidebarOpen(true);
@@ -15,9 +14,9 @@ const Promo = () => {
         setSidebarOpen(false);
     };
 
-    const addToCart = (price: string) => {
+    const addToCart = (newprice: string) => {
         setTotalItems((prevItems) => prevItems + 1);
-        setTotalPrice((prevTotal) => prevTotal + parseInt(price.replace(/\D/g, ''), 10));
+        setTotalPrice((prevTotal) => prevTotal + parseInt(newprice.replace(/\D/g, ''), 10));
     };
 
     // Array of image data
@@ -72,7 +71,7 @@ const Promo = () => {
                                         <p class="line-through text-red-500 font-bold text-lg font-sans mt-4">{data.price}</p>
                                         <button
                                             class="bg-white text-lg text-purple-500 p-2 rounded-full px-7 font-bold font-sans mt-4"
-                                            onClick={() => addToCart(data.price)}
+                                            onClick={() => addToCart(data.newprice)}
                                         >
                                             Add
                                         </button>
