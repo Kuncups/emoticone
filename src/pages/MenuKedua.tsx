@@ -2,7 +2,7 @@ import { createSignal } from 'solid-js';
 import Sidebar from '../components/Sidebar';
 import SidebarProfile from '../components/SidebarProfile';
 
-const Menu = () => {
+const MenuKedua = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
     const [totalPrice, setTotalPrice] = createSignal(0); // Initialize total price to zero
     const [totalItems, setTotalItems] = createSignal(0); // Initialize total items to zero
@@ -105,9 +105,9 @@ const Menu = () => {
                 <SidebarProfile isOpen={isSidebarProfileOpen()} onClose={closeSidebarProfile} />
             </div>
             <div class="absolute bottom-4 right-4">
-                <a href="/menukedua">
+                <a href="/menu">
                     <button class="text-xl text-white font-bold bg-purple-500 p-3 rounded-full border border-black">
-                        Next Page
+                        Back Page
                     </button>
                 </a>
             </div>
@@ -115,4 +115,4 @@ const Menu = () => {
     );
 };
 
-export default Menu;
+export default MenuKedua;

@@ -39,12 +39,6 @@ const Sidebar = (props: SidebarProps) => {
                             <p>MoodScoop</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="/profile" class="text-xl text-[#BA43F2] font-bold hover:text-yellow-600 bg-white p-4 px-16 border rounded-full flex items-center">
-                            <img src="Union.png" alt="Home Icon" class="mr-2 items-start" />
-                            <p>Profiles</p>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>

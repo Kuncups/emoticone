@@ -2,9 +2,19 @@ import { createSignal, createEffect } from 'solid-js';
 import "solid-slider/slider.css";
 import { Slider, SliderButton, SliderProvider } from "solid-slider";
 import Sidebar from '../components/Sidebar';
+import SidebarProfile from '../components/SidebarProfile';
 
 const Dashboard = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
+    const [isSidebarProfileOpen, setSidebarProfileOpen] = createSignal(false);
+
+    const openSidebarProfile = () => {
+        setSidebarProfileOpen(true);
+    };
+
+    const closeSidebarProfile = () => {
+        setSidebarProfileOpen(false);
+    };
     const openSidebar = () => {
         setSidebarOpen(true);
     };
@@ -38,7 +48,6 @@ const Dashboard = () => {
                         ☰
                     </button>
                     <img src="logo2.png" alt="Logo" class="ml-4 w-64 h-14" />
-
                     <div class="w-47 h-45 absolute top-28 items-right">
                         <img src='people.png' alt="People" class="w-47 h-45 absolute top-0 left-0 border-1.50 border-black" />
                     </div>
@@ -50,7 +59,7 @@ const Dashboard = () => {
                         class="w-96 h-8 px-3 text-sm border border-gray-500 rounded-md mr-8 focus:outline-none"
                     />
                     <div style="width: 47px; height: 45px; position: relative">
-                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png'></img>
+                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png' onclick={openSidebarProfile}></img>
                     </div>
                 </div>
                 <div style="width: 1249px; height: 341px; position: relative">
@@ -84,7 +93,6 @@ const Dashboard = () => {
                         <div class="flex items-center absolute top-1/2 transform -translate-y-1/2 right-4">
                             <SliderButton next class="text-white text-2xl px-4 cursor-pointer">&gt;</SliderButton>
                         </div>
-
                         <div class="flex items-center absolute top-1/2 transform -translate-y-1/2 left-4">
                             <SliderButton prev class="text-white text-2xl px-4 cursor-pointer">&lt;</SliderButton>
                         </div>
@@ -93,6 +101,7 @@ const Dashboard = () => {
             </div>
             <div class="fixed top-0 left-0">
                 <Sidebar isOpen={isSidebarOpen()} onClose={closeSidebar} />
+                <SidebarProfile isOpen={isSidebarProfileOpen()} onClose={closeSidebarProfile} />
             </div>
         </>
     );

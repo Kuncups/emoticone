@@ -11,6 +11,8 @@ import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 import MoodScoop from './pages/MoodScoop';
 import Recommendation from './pages/Recommendation';
+import LandingPage from './pages/LandingPage';
+import MenuKedua from './pages/MenuKedua';
 
 function App() {
 
@@ -19,10 +21,14 @@ function App() {
     switch (currentPath) {
       case '/register':
         return <Register />;
+      case '/login':
+        return <Login />;
       case '/dashboard':
         return <Dashboard />;
       case '/menu':
         return <Menu />;
+      case '/menukedua':
+        return <MenuKedua />;
       case '/promo':
         return <Promo />;
       case '/shoppingcart':
@@ -40,7 +46,7 @@ function App() {
       case '/recommendation':
         return <Recommendation />;
       default:
-        return <Login />;
+        return <LandingPage />;
     }
   };
 

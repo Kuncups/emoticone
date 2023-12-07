@@ -2,9 +2,19 @@ import { createSignal, createEffect } from 'solid-js';
 import "solid-slider/slider.css";
 import { Slider, SliderButton, SliderProvider } from "solid-slider";
 import Sidebar from '../components/Sidebar';
+import SidebarProfile from '../components/SidebarProfile';
 
 const Recommendation = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
+    const [isSidebarProfileOpen, setSidebarProfileOpen] = createSignal(false);
+
+    const openSidebarProfile = () => {
+        setSidebarProfileOpen(true);
+    };
+
+    const closeSidebarProfile = () => {
+        setSidebarProfileOpen(false);
+    };
     const openSidebar = () => {
         setSidebarOpen(true);
     };
@@ -47,7 +57,7 @@ const Recommendation = () => {
 
                     <div style="width: 400px; height: 15px; color: rgba(0, 0, 0, 0.40); font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word"></div>
                     <div style="width: 47px; height: 45px; position: relative">
-                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png'></img>
+                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png' onclick={openSidebarProfile}></img>
                     </div>
                 </div>
 
@@ -98,6 +108,7 @@ const Recommendation = () => {
 
             <div class="fixed top-0 left-0">
                 <Sidebar isOpen={isSidebarOpen()} onClose={closeSidebar} />
+                <SidebarProfile isOpen={isSidebarProfileOpen()} onClose={closeSidebarProfile} />
             </div>
         </>
     );

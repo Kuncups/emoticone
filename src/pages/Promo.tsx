@@ -1,10 +1,20 @@
 import { createSignal } from 'solid-js';
 import Sidebar from '../components/Sidebar';
+import SidebarProfile from '../components/SidebarProfile';
 
 const Promo = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
     const [totalPrice, setTotalPrice] = createSignal(0); // Initialize total price to zero
     const [totalItems, setTotalItems] = createSignal(0); // Initialize total items to zero
+    const [isSidebarProfileOpen, setSidebarProfileOpen] = createSignal(false);
+
+    const openSidebarProfile = () => {
+        setSidebarProfileOpen(true);
+    };
+
+    const closeSidebarProfile = () => {
+        setSidebarProfileOpen(false);
+    };
 
     const openSidebar = () => {
         setSidebarOpen(true);
@@ -50,7 +60,7 @@ const Promo = () => {
                         class="w-96 h-8 px-3 text-sm border border-gray-500 rounded-md mr-8 focus:outline-none"
                     />
                     <div style="width: 47px; height: 45px; position: relative">
-                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png'></img>
+                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png' onclick={openSidebarProfile}></img>
                     </div>
                 </div>
                 <div class='mt-10 flex gap-10 items-center justify-center' style="width: 1391px; height: 854px; background: #BA43F2; box-shadow: 9px 19px 5.5px rgba(0, 0, 0, 0.25); border-radius: 75px; border: 1px black solid">
@@ -93,6 +103,7 @@ const Promo = () => {
             </div>
             <div class="fixed top-0 left-0">
                 <Sidebar isOpen={isSidebarOpen()} onClose={closeSidebar} />
+                <SidebarProfile isOpen={isSidebarProfileOpen()} onClose={closeSidebarProfile} />
             </div>
         </>
     );

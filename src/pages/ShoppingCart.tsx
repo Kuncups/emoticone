@@ -1,8 +1,19 @@
 import { createSignal } from 'solid-js';
 import Sidebar from '../components/Sidebar';
+import SidebarProfile from '../components/SidebarProfile';
 
 const ShoppingCart = () => {
     const [isSidebarOpen, setSidebarOpen] = createSignal(false);
+    const [isSidebarProfileOpen, setSidebarProfileOpen] = createSignal(false);
+
+    const openSidebarProfile = () => {
+        setSidebarProfileOpen(true);
+    };
+
+    const closeSidebarProfile = () => {
+        setSidebarProfileOpen(false);
+    };
+
     const openSidebar = () => {
         setSidebarOpen(true);
     };
@@ -19,16 +30,14 @@ const ShoppingCart = () => {
                         ☰
                     </button>
                     <img src="logo2.png" alt="Logo" class="ml-4 w-64 h-14" />
-
                     <div class="w-47 h-45 absolute mt-10 items-right">
                         <img src='people.png' alt="People" class="w-47 h-45 absolute top-0 left-0 border-1.50 border-black" />
                     </div>
                     <div style="width: 709px; height: 15px; color: rgba(0, 0, 0, 0.40); font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word"></div>
                     <div style="width: 401px; height: 15px; color: rgba(0, 0, 0, 0.40); font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word"></div>
-
                     <div style="width: 400px; height: 15px; color: rgba(0, 0, 0, 0.40); font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word"></div>
                     <div style="width: 47px; height: 45px; position: relative">
-                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png'></img>
+                        <img style="width: 47px; height: 45px; left: 0px; top: 0px; position: absolute; black solid" src='people.png' onclick={openSidebarProfile}></img>
                     </div>
                 </div>
 
@@ -113,14 +122,13 @@ const ShoppingCart = () => {
                     <div class="w-[332px] left-[232px] top-[32px] absolute text-white text-[45px] font-bold font-['Inter']">Shopping Cart</div>
                     <div class="w-[629px] h-[72px] left-[232px] top-[97px] absolute text-white text-xl font-bold font-['Inter']">You have 3 item in your cart</div>
                     <div class="w-[743px] h-[0px] left-[232px] top-[147px] absolute border border-black">
-
                     </div>
-
                 </div>
             </div>
 
             <div class="fixed top-0 left-0">
                 <Sidebar isOpen={isSidebarOpen()} onClose={closeSidebar} />
+                <SidebarProfile isOpen={isSidebarProfileOpen()} onClose={closeSidebarProfile} />
             </div>
         </>
     );
