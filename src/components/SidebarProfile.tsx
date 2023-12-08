@@ -6,7 +6,7 @@ interface SidebarProfileProps {
 const SidebarProfile = (props: SidebarProfileProps) => {
     return (
         <div class={`w-356 h-96 fixed top-0 right-0 bg-[#BA43F2] ${props.isOpen ? 'translate-x-0' : 'translate-x-full'} border border-black rounded-l-3xl transition-transform ease-in-out duration-300`}>
-            <div class="order-first mb-20 flex items-center mt-3">
+            <div class="order-first mb-10 flex items-center mt-3">
                 <div class="flex flex-col mt-3">
                     <div class="flex justify-center items-center mb-1">
                         <img src="people.png" class="ml-4 h-10 w-10" />
@@ -17,7 +17,6 @@ const SidebarProfile = (props: SidebarProfileProps) => {
                 <button class="text-3xl text-white focus:outline-none ml-4 p-4" onClick={props.onClose}>
                     &gt; {/* Ini adalah karakter HTML untuk tanda panah kanan */}
                 </button>
-
             </div>
 
             <nav class="mb-10">
